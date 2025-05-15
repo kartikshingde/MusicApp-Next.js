@@ -51,7 +51,7 @@ function FeaturedCourses() {
       <div className="mt-20 text-center">
         <Link
           href={"/courses"}
-          className="border border-orange-300 py-4 px-6 rounded-xl dark:bg-gray-600 dark:text-white hover:bg-gray-800 "
+          className="border border-orange-300 py-4 px-6 rounded-xl bg-white dark:bg-gray-600 dark:text-white hover:dark:bg-gray-800 hover:bg-gray-200"
         >
           View All Courses
         </Link>

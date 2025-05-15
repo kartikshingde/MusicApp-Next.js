@@ -1,19 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { HoveredLink, Menu, MenuItem} from "./ui/navbar-menu";
 import { cn } from "@/utils/lib/utils";
 import Link from "next/link";
+
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+      className={cn("fixed top-0 inset-x-0 max-w-2xl mx-auto z-50 ", className)}
     >
       <Menu setActive={setActive}>
         <Link href={"/"}>
-          <MenuItem
+          <MenuItem 
             setActive={setActive}
             active={active}
             item="Home"
@@ -22,18 +23,24 @@ function Navbar({ className }: { className?: string }) {
 
         <MenuItem setActive={setActive} active={active} item="Our Courses">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/courses">All Courses</HoveredLink>
-            <HoveredLink href="/interface-design">
+            <HoveredLink href={"/courses"}>All Courses</HoveredLink>
+            <HoveredLink href="/">
               Basic Music Theory
             </HoveredLink>
-            <HoveredLink href="/interface-design">
+            <HoveredLink href="/">
               Advanced Composition
             </HoveredLink>
-            <HoveredLink href="/interface-design">Songwriting</HoveredLink>
-            <HoveredLink href="/interface-design">Music Production</HoveredLink>
+            <HoveredLink href="/">Songwriting</HoveredLink>
+            <HoveredLink href="/">Music Production</HoveredLink>
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact Us"></MenuItem>
+        <Link href={"/contact"}>
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item="Contact Us"
+          ></MenuItem>
+        </Link>
       </Menu>
     </div>
   );
